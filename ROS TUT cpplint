@@ -1,0 +1,10 @@
+viki@ubuntu:~/catkin_ws/src/beginner_tutorials$ ~/Desktop/cpplint.py --extensions=h,hpp,cpp $( find . -name *.h -or -name *.hpp -or -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
+./src/talker.cpp:12:  Found C++ system header after other header. Should be: talker.h, c system, c++ system, other.  [build/include_order] [4]
+./src/talker.cpp:56:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+./src/talker.cpp:56:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+./src/talker.cpp:71:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+./src/talker.cpp:71:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+Done processing ./src/talker.cpp
+Done processing ./src/listener.cpp
+Total errors found: 5
+
