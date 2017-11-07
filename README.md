@@ -38,8 +38,8 @@ To download this repository to your catkin workpace do the following steps:
 
 ```
 $ cd ~/catkin_ws/src
-$ mkdir -p ~/week10hw
-$ cd ~/week10hw
+$ mkdir week10hw
+$ cd week10hw
 $ git clone --recursive https://github.com/rubenacevedo3/beginner_tutorials.git
 $ git pull origin Week10_HW
 ```
