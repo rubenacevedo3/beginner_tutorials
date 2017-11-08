@@ -205,3 +205,11 @@ add_dependencies(talker beginner_tutorials_generate_messages_cpp)
 add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 add_dependencies(listener beginner_tutorials_generate_messages_cpp)
+
+add_executable(changeBaseOutputString_server src/changeBaseOutputString.cpp)
+target_link_libraries(changeBaseOutputString_server ${catkin_LIBRARIES})
+add_dependencies(changeBaseOutputString_server beginner_tutorials_gencpp)
+
+add_executable(changeBaseOutputString_client src/changeBaseOutputStringClient.cpp)
+target_link_libraries(changeBaseOutputString_client ${catkin_LIBRARIES})
+add_dependencies(changeBaseOutputString_client beginner_tutorials_gencpp)
