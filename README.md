@@ -50,6 +50,11 @@ To build any catkin projects found in the src folder use:
 $ catkin_make
 ```
 
+To run the launch file:
+```
+$ roslaunch beginner_tutorials modifyPubFreq.launch
+```
+
 ## Run cpplint 
 
 Use cpplint to identify potential source code issues that are in conflict with the Google C++ style guide. 
