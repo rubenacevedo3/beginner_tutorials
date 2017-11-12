@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Week 10 Hw is on learning and implementing ROS Services, Logging and Launch files using the talker and listener nodes we created the previous week.
+This Week 11 Hw is on learning and implementing ROS TF, unit testing, and bag files using the talker and listener nodes we created a couple weeks ago.
 
 ## License
 
@@ -38,10 +38,10 @@ To download this repository to your catkin workpace do the following steps:
 
 ```
 $ cd ~/catkin_ws/src
-$ mkdir week10hw
-$ cd week10hw
+$ mkdir week11hw
+$ cd week11hw
 $ git clone --recursive https://github.com/rubenacevedo3/beginner_tutorials.git
-$ git pull origin Week10_HW
+$ git pull origin Week11_HW
 ```
 
 To build any catkin projects found in the src folder use: 
