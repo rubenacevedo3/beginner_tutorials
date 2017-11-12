@@ -50,26 +50,31 @@ To build any catkin projects found in the src folder use:
 $ catkin_make
 ```
 
-## How to run cpplint 
+To run the launch file:
+```
+$ roslaunch beginner_tutorials modifyPubFreq.launch
+```
+
+## Run cpplint 
 
 Use cpplint to identify potential source code issues that are in conflict with the Google C++ style guide. 
 
 To install and run from terminal:
 
-wget https://raw.githubusercontent.com/google/styleguide/gh-pages/cpplint/cpplint.py (Links to an external site.)
-Change permission to executable: chmod +x cpplint.py
-cd <repository>
-Run cpplint
-Example run with cpp-boilerplate (cpplint.py is in the parent directory):
+```
+$ sudo apt-get install python-pip
+$ sudo pip install cpplint
+$ cd ~/catkin_ws/src/week10hw/beginner_tutorials
+$ cpplint $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
+```
 
-cd cpp-boilerplate
+## Run cppcheck 
 
-../cpplint.py --extensions=h,hpp,cpp $( find . -name *.h -or -name *.hpp -or -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
+Use cppcheck for static code analysis.
 
-This command runs cpplint.py and tells the script to examine files with extension .h, .hpp, or .cpp. The script expects a list of files so the bash command first finds all files in the directory and sub-directories that have the extension .h, .hpp, or .cpp. It then excludes any file found in the build or vendor sub-directories.
+To run from terminal:
 
-## How to run cppcheck 
-
-Use cppcheck for static code analysis using the command-line from repository root "RoboDogVoiceController-eclipse"
-
-cppcheck --enable=all --std=c++11 -I include/ --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
+```
+$ cd ~/catkin_ws/src/week10hw/beginner_tutorials
+$ cppcheck --enable=all --std=c++11 -I include/ --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
+```
