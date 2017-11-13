@@ -29,10 +29,10 @@
  * DEALINGS IN THE SOFTWARE. © 2017 GitHub, Inc.
  */
 
-#include "ros/ros.h"
-#include "std_msgs/String.h"
 #include <tf/transform_broadcaster.h>
 #include <sstream>
+#include "ros/ros.h"
+#include "std_msgs/String.h"
 
 /**
 * This tutorial demonstrates simple sending of messages over the ROS system.
@@ -55,7 +55,6 @@ int main(int argc, char **argv) {
       * NodeHandle destructed will close down the node.
       */
   ros::NodeHandle n;
-  //ros::NodeHandle node;
 
      /**
       * The advertise() function is how you tell ROS that you want to
@@ -77,7 +76,7 @@ int main(int argc, char **argv) {
   ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
 
   ros::Rate loop_rate(10);
-   
+
      /**
       * A count of how many messages we have sent. This is used to create
       * a unique string for each message.
@@ -94,17 +93,17 @@ int main(int argc, char **argv) {
   tf::Transform transform;
 
   ros::Rate rate(10.0);
-  
+
   while (ros::ok()) {
-    
     /**
      * This creates the tf frame called /talk with parent /world
      */  
-    transform.setOrigin( tf::Vector3(6.0, 2.0, 5.0) );
+    transform.setOrigin(tf::Vector3(6.0, 2.0, 5.0));
     tf::Quaternion q;
     q.setRPY(0.5, 0.5, 1);
     transform.setRotation(q);
-    br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "/world", "/talker"));
+    br.sendTransform(tf::StampedTransform(transform, ros::Time::now(),
+       "/world", "/talker"));
     rate.sleep();
 
       /**
@@ -115,7 +114,7 @@ int main(int argc, char **argv) {
     ss << "I am pickle Rick!!!" << count;
     msg.data = ss.str();
     ROS_INFO("%s", msg.data.c_str());
- 
+
       /**
        * The publish() function is how you send messages. The parameter
        * is the message object. The type of this object must agree with the type
