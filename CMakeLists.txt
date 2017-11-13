@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
+  tf
 )
 
 ## System dependencies are found with CMake's conventions
@@ -213,3 +214,4 @@ add_dependencies(changeBaseOutputString_server beginner_tutorials_gencpp)
 add_executable(changeBaseOutputString_client src/changeBaseOutputStringClient.cpp)
 target_link_libraries(changeBaseOutputString_client ${catkin_LIBRARIES})
 add_dependencies(changeBaseOutputString_client beginner_tutorials_gencpp)
+

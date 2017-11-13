@@ -1,7 +1,7 @@
 /**
  *@author Ruben Acevedo
  *@file talker.cpp
- *@brief This is the ".cpp" file for the talker package
+ *@brief This is the ".cpp" file for the talker node
  *@copyright [2017] Ruben Acevedo
  *
  */
@@ -31,7 +31,7 @@
 
 #include "ros/ros.h"
 #include "std_msgs/String.h"
-
+#include <tf/transform_broadcaster.h>
 #include <sstream>
 
 /**
@@ -55,6 +55,7 @@ int main(int argc, char **argv) {
       * NodeHandle destructed will close down the node.
       */
   ros::NodeHandle n;
+  //ros::NodeHandle node;
 
      /**
       * The advertise() function is how you tell ROS that you want to
@@ -82,7 +83,30 @@ int main(int argc, char **argv) {
       * a unique string for each message.
       */
   int count = 0;
+
+  /**
+   * This creates a transform broadcaster
+   */
+  static tf::TransformBroadcaster br;
+  /**
+   * This creates a transform
+   */
+  tf::Transform transform;
+
+  ros::Rate rate(10.0);
+  
   while (ros::ok()) {
+    
+    /**
+     * This creates the tf frame called /talk with parent /world
+     */  
+    transform.setOrigin( tf::Vector3(6.0, 2.0, 5.0) );
+    tf::Quaternion q;
+    q.setRPY(0.5, 0.5, 1);
+    transform.setRotation(q);
+    br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "/world", "/talker"));
+    rate.sleep();
+
       /**
        * This is a message object. You stuff it with data, and then publish it.
        */
