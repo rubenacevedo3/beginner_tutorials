@@ -215,3 +215,22 @@ add_executable(changeBaseOutputString_client src/changeBaseOutputStringClient.cp
 target_link_libraries(changeBaseOutputString_client ${catkin_LIBRARIES})
 add_dependencies(changeBaseOutputString_client beginner_tutorials_gencpp)
 
+catkin_add_gtest(test test/talkerTest.cpp)
+
+
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+
+  add_rostest_gtest(
+  talkerTest
+  test/talkerTest.launch
+  test/talkerTest.cpp
+  )
+  target_link_libraries(
+  talkerTest
+  ${catkin_LIBRARIES}
+  )
+endif()
+
+
+
