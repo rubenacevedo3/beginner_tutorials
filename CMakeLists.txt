@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(beginner_tutorials)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -117,7 +117,7 @@ CATKIN_DEPENDS message_runtime
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+ include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -215,7 +215,7 @@ add_executable(changeBaseOutputString_client src/changeBaseOutputStringClient.cp
 target_link_libraries(changeBaseOutputString_client ${catkin_LIBRARIES})
 add_dependencies(changeBaseOutputString_client beginner_tutorials_gencpp)
 
-catkin_add_gtest(test test/talkerTest.cpp)
+#catkin_add_gtest(talkerTest1 test/talkerTest.cpp)
 
 
 if(CATKIN_ENABLE_TESTING)

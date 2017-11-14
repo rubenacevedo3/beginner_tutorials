@@ -27,7 +27,6 @@
  * DEALINGS IN THE SOFTWARE. © 2017 GitHub, Inc.
  */
 #include <tf/transform_listener.h>
-#include <src/talker.cpp>
 #include <gtest/gtest.h>
 
 //! test the talker broadcaster
@@ -36,8 +35,9 @@
  * zero translation. 
  *
  */
-TEST(talkerTest, noZeroTranslationTest) {
-  ros::init();
+TEST(talkerTest1, noZeroTranslationTest) {
+  //ros::init();
+  
   ros::NodeHandle node;
   /**
    *Create the listener to see what talker is broadcasting
@@ -45,6 +45,7 @@ TEST(talkerTest, noZeroTranslationTest) {
   tf::TransformListener listener;
   ros::Rate rate(10.0);
   int i = 0;
+  
   while (i < 100) {
     tf::StampedTransform transform;
     /**
@@ -52,8 +53,12 @@ TEST(talkerTest, noZeroTranslationTest) {
      * and saves it as transform. 
      */
     try {
-      listener.lookupTransform("/talker", "/world",
+      listener.lookupTransform("/talk", "/world",
                                ros::Time(0), transform);
+    }
+    catch (tf::TransformException ex){
+      ROS_ERROR("%s",ex.what());
+      ros::Duration(1.0).sleep();
     }
     /**
      * to have a non zero translation at least one has to be none zero
@@ -71,7 +76,6 @@ int main(int argc,
          char **argv)
 {
   ros::init(argc, argv, "talkerTest");
-  nh.reset(new ros::NodeHandle);
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
 }

@@ -92,8 +92,6 @@ int main(int argc, char **argv) {
    */
   tf::Transform transform;
 
-  ros::Rate rate(10.0);
-
   while (ros::ok()) {
     /**
      * This creates the tf frame called /talk with parent /world
@@ -103,8 +101,7 @@ int main(int argc, char **argv) {
     q.setRPY(0.5, 0.5, 1);
     transform.setRotation(q);
     br.sendTransform(tf::StampedTransform(transform, ros::Time::now(),
-       "/world", "/talker"));
-    rate.sleep();
+       "/world", "/talk"));
 
       /**
        * This is a message object. You stuff it with data, and then publish it.
