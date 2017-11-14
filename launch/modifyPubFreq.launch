@@ -1,7 +1,15 @@
 <launch>
 
+  <arg name="doRosbag" default= "false"/>
+
   <node pkg="beginner_tutorials" name="taking" type="talker"/>
  
   <node pkg="beginner_tutorials" name="listening" type="listener"/>
+
+  <group if="$(arg doRosbag)">
+    <node pkg = "rosbag" name= "rosbag_record" type= "record"
+  		args = "-a -O bagfile" output = "screen" 
+    />
+  </group>
 
 </launch>
