@@ -36,8 +36,6 @@
  *
  */
 TEST(talkerTest1, noZeroTranslationTest) {
-  //ros::init();
-  
   ros::NodeHandle node;
   /**
    *Create the listener to see what talker is broadcasting
@@ -45,7 +43,7 @@ TEST(talkerTest1, noZeroTranslationTest) {
   tf::TransformListener listener;
   ros::Rate rate(10.0);
   int i = 0;
-  
+
   while (i < 100) {
     tf::StampedTransform transform;
     /**
@@ -56,14 +54,14 @@ TEST(talkerTest1, noZeroTranslationTest) {
       listener.lookupTransform("/talk", "/world",
                                ros::Time(0), transform);
     }
-    catch (tf::TransformException ex){
-      ROS_ERROR("%s",ex.what());
+    catch (tf::TransformException &ex) {
+      ROS_ERROR("%s", ex.what());
       ros::Duration(1.0).sleep();
     }
     /**
      * to have a non zero translation at least one has to be none zero
      */
-    EXPECT_TRUE(transform.getOrigin().x() != 0 || 
+    EXPECT_TRUE(transform.getOrigin().x() != 0 ||
       transform.getOrigin().y() != 0 ||
       transform.getOrigin().z() != 0);
     rate.sleep();
@@ -72,9 +70,7 @@ TEST(talkerTest1, noZeroTranslationTest) {
 }
 
 
-int main(int argc,
-         char **argv)
-{
+int main(int argc, char **argv) {
   ros::init(argc, argv, "talkerTest");
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

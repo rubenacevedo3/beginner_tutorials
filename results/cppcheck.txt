@@ -1,0 +1,16 @@
+(information) Couldn't find path given by -I 'include/'
+Checking src/changeBaseOutputString.cpp...
+1/5 files checked 13% done
+Checking src/changeBaseOutputStringClient.cpp...
+2/5 files checked 27% done
+Checking src/listener.cpp...
+3/5 files checked 51% done
+Checking src/talker.cpp...
+4/5 files checked 83% done
+Checking test/talkerTest.cpp...
+5/5 files checked 100% done
+[test/talkerTest.cpp:38]: (style) The function 'TEST' is never used.
+[src/changeBaseOutputString.cpp:37]: (style) The function 'changeS' is never used.
+(information) Cppcheck cannot find all the include files (use --check-config for details)
+
+
