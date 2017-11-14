@@ -17,6 +17,14 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 © 2017 GitHub, Inc.
 
+## Dependencies
+
+* ROS Kinetic
+* Catkin
+* roscpp package
+* std_msgs package
+* message_generation package
+* tf package
 
 ## Build/Run Steps
 
@@ -50,9 +58,32 @@ To build any catkin projects found in the src folder use:
 $ catkin_make
 ```
 
-To run the launch file:
+To build any test found in the test folder use: 
 ```
+# In a catkin workspace
+$ catkin_make test
+```
+
+To run the launch file:
+
+(In terminal 1)
+```
+$ roscore
+```
+
+(In terminal 2)
+```
+$ cd ~/catkin_ws
+$ source ./devel/setup.bash
 $ roslaunch beginner_tutorials modifyPubFreq.launch
+```
+
+To run the tests: 
+(In terminal 3)
+```
+$ cd ~/catkin_ws
+$ source ./devel/setup.bash
+$ rostest beginner_tutorials talkerTest.launch
 ```
 
 ## Run cpplint 
