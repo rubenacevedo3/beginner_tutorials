@@ -92,7 +92,11 @@ $ rostest beginner_tutorials talkerTest.launch
 $ cd ~/catkin_ws
 $ source ./devel/setup.bash
 $ rosrun tf tf_echo /world /talk
+# to create a pdf of the frames
+$ rosrun tf view_frames
+$ evince frames.pdf
 ```
+To create a 
 
 ## Steps for recording bag files with the launch file
 
