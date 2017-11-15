@@ -65,6 +65,7 @@ $ catkin_make test
 ```
 
 To run the launch file:
+(note this is to run the launch file without enabling rosbag)
 
 (In terminal 1)
 ```
@@ -77,14 +78,54 @@ $ cd ~/catkin_ws
 $ source ./devel/setup.bash
 $ roslaunch beginner_tutorials modifyPubFreq.launch
 ```
-
-To run the tests: 
+## Steps for running rostest
 (In terminal 3)
 ```
 $ cd ~/catkin_ws
 $ source ./devel/setup.bash
 $ rostest beginner_tutorials talkerTest.launch
 ```
+## Steps for inspecting TF frames
+
+(In terminal 4)
+```
+$ cd ~/catkin_ws
+$ source ./devel/setup.bash
+$ rosrun tf tf_echo /world /talk
+```
+
+## Steps for recording bag files with the launch file
+
+(In terminal 5)
+```
+$ cd ~/catkin_ws
+$ source ./devel/setup.bash
+$ roslaunch beginner_tutorials modifyPubFreq.launch doRosbag:=true
+# press ctrl+C to stop recording 
+```
+## Steps for inspecting the bag file
+
+(In terminal 5)
+```
+$ cd ~/.ros
+$ rosbag info bagfile.bag
+```
+
+## Steps for playing back the bag file with the Listener node demonstration
+
+(In terminal 6)
+```
+$ cd ~/catkin_ws
+$ source ./devel/setup.bash
+$ rosrun beginner_tutorials listener 
+```
+
+(In terminal 5)
+```
+$ cd ~/.ros
+$ rosbag play bagfile.bag
+```
+(you should be able to see the bagfile output in the listener terminal)
 
 ## Run cpplint 
 
